@@ -50,13 +50,13 @@ export function Hero() {
               className="reveal mt-10 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-14"
               style={{ animationDelay: "560ms" }}
             >
-              <Action asChild size="lg" className="text-label group">
+              <Action asChild size="lg" className="group">
                 <a href="#work">
                   View my work
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Action>
-              <Action asChild size="lg" variant="outline" className="text-label">
+              <Action asChild size="lg" variant="outline">
                 <a href="#contact">Let&apos;s talk</a>
               </Action>
             </div>

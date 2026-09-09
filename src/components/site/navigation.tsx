@@ -49,7 +49,7 @@ export function Navigation() {
               {link.label}
             </a>
           ))}
-          <Action asChild size="sm" variant="outline" className="text-label">
+          <Action asChild size="sm" variant="outline">
             <a href="#contact">Let&apos;s talk</a>
           </Action>
         </nav>
