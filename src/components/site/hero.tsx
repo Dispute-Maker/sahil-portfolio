@@ -15,7 +15,7 @@ export function Hero() {
               <LabelTag marker>Portfolio — 2026</LabelTag>
             </div>
 
-            <h1 className="text-display mt-6 md:mt-8">
+            <h1 className="type-display mt-6 md:mt-8">
               <span
                 className="reveal block"
                 style={{ animationDelay: "140ms" }}
@@ -35,7 +35,7 @@ export function Hero() {
               style={{ animationDelay: "360ms" }}
             >
               <span aria-hidden className="h-px w-10 bg-foreground md:w-16" />
-              <h2 className="text-label text-foreground md:text-xs">{site.role}</h2>
+              <h2 className="type-label text-foreground md:text-xs">{site.role}</h2>
             </div>
 
             <Text
@@ -65,8 +65,8 @@ export function Hero() {
           <div className="reveal-soft hidden md:col-span-3 md:flex md:flex-col md:items-end md:justify-end md:text-right"
             style={{ animationDelay: "700ms" }}
           >
-            <span className="text-meta">Based in India</span>
-            <span className="text-meta mt-1">Open to opportunities</span>
+            <span className="type-meta">Based in India</span>
+            <span className="type-meta mt-1">Open to opportunities</span>
           </div>
         </div>
       </Container>
@@ -77,7 +77,7 @@ export function Hero() {
           style={{ animationDelay: "900ms" }}
         >
           <ArrowDown className="scroll-hint size-4 text-muted-foreground" aria-hidden />
-          <span className="text-label text-muted-foreground">Scroll</span>
+          <span className="type-label text-muted-foreground">Scroll</span>
         </div>
       </Container>
     </section>

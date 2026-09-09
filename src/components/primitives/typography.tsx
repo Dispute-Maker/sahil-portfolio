@@ -2,14 +2,14 @@ import type { ElementType, HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 const variants = {
-  display: "text-display",
-  h1: "text-h1",
-  h2: "text-h2",
-  h3: "text-h3",
-  body: "text-body",
-  small: "text-small text-muted-foreground",
-  label: "text-label text-muted-foreground",
-  meta: "text-meta text-muted-foreground",
+  display: "type-display",
+  h1: "type-h1",
+  h2: "type-h2",
+  h3: "type-h3",
+  body: "type-body",
+  small: "type-small text-muted-foreground",
+  label: "type-label text-muted-foreground",
+  meta: "type-meta text-muted-foreground",
 } as const;
 
 const defaultTags: Record<keyof typeof variants, ElementType> = {
