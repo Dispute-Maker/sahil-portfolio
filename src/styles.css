@@ -123,7 +123,7 @@
 }
 
 /* Typography hierarchy */
-@utility text-display {
+@utility type-display {
   font-family: var(--font-display);
   font-size: clamp(2.75rem, 9vw, 8rem);
   line-height: 0.92;
@@ -131,39 +131,39 @@
   font-weight: 500;
 }
 
-@utility text-h1 {
+@utility type-h1 {
   font-size: clamp(2.25rem, 6vw, 4.5rem);
   line-height: 1;
   letter-spacing: -0.035em;
   font-weight: 500;
 }
 
-@utility text-h2 {
+@utility type-h2 {
   font-size: clamp(1.75rem, 4vw, 3rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
   font-weight: 500;
 }
 
-@utility text-h3 {
+@utility type-h3 {
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
   font-weight: 500;
 }
 
-@utility text-body {
+@utility type-body {
   font-size: clamp(1rem, 1.1vw, 1.125rem);
   line-height: 1.65;
   letter-spacing: -0.005em;
 }
 
-@utility text-small {
+@utility type-small {
   font-size: 0.875rem;
   line-height: 1.6;
 }
 
-@utility text-label {
+@utility type-label {
   font-size: 0.6875rem;
   line-height: 1.2;
   letter-spacing: 0.16em;
@@ -171,7 +171,7 @@
   font-weight: 500;
 }
 
-@utility text-meta {
+@utility type-meta {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   line-height: 1.4;
@@ -181,4 +181,61 @@
 /* Editorial hairline rule */
 @utility rule-y {
   border-top: 1px solid var(--color-border);
+}
+
+/* Entrance motion primitives (Phase 02) */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(0.4rem);
+    opacity: 1;
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@utility reveal-soft {
+  opacity: 0;
+  animation: soft-in 1s ease-out forwards;
+}
+
+@utility scroll-hint {
+  animation: scroll-hint 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-soft,
+  .scroll-hint {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

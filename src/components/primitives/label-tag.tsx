@@ -9,7 +9,7 @@ type LabelTagProps = HTMLAttributes<HTMLSpanElement> & {
 export function LabelTag({ marker = false, className, children, ...props }: LabelTagProps) {
   return (
     <span
-      className={cn("text-label inline-flex items-center gap-2 text-muted-foreground", className)}
+      className={cn("type-label inline-flex items-center gap-2 text-muted-foreground", className)}
       {...props}
     >
       {marker ? (
