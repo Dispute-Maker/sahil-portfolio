@@ -9,6 +9,7 @@ const pad = (n: number) => String(n + 1).padStart(2, "0");
 
 export function Showcase() {
   const [active, setActive] = useState(0);
+  const current = projects[active] ?? projects[0]!;
   const stepRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export function Showcase() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            const i = Number((entry.target as HTMLElement).dataset.index);
+            const i = Number((entry.target as HTMLElement).dataset['index']);
             setActive(i);
           }
         }
@@ -64,8 +65,8 @@ export function Showcase() {
                 </div>
               </div>
               <div className="mt-4 flex items-center justify-between">
-                <span className="type-label text-muted-foreground">{projects[active].category}</span>
-                <span className="type-meta text-muted-foreground">{projects[active].year}</span>
+                <span className="type-label text-muted-foreground">{current.category}</span>
+                <span className="type-meta text-muted-foreground">{current.year}</span>
               </div>
               {/* Progress rail */}
               <div className="mt-3 flex gap-1" aria-hidden>
