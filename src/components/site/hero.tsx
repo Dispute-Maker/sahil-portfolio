@@ -1,31 +1,26 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { Action, Container, LabelTag, Text } from "@/components/primitives";
 import { site } from "@/data/site";
+import { IdentityBadge } from "./identity-badge";
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-center pt-28 pb-20 md:pt-36 md:pb-28"
+      className="relative flex min-h-svh flex-col justify-center pt-28 pb-24 md:pt-36 md:pb-28"
     >
       <Container>
-        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-9">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-8 lg:items-center">
+          <div className="md:col-span-8">
             <div className="reveal" style={{ animationDelay: "60ms" }}>
               <LabelTag marker>Portfolio — 2026</LabelTag>
             </div>
 
             <h1 className="type-display mt-6 md:mt-8">
-              <span
-                className="reveal block"
-                style={{ animationDelay: "140ms" }}
-              >
+              <span className="reveal block" style={{ animationDelay: "140ms" }}>
                 SAHIL
               </span>
-              <span
-                className="reveal block"
-                style={{ animationDelay: "240ms" }}
-              >
+              <span className="reveal block" style={{ animationDelay: "240ms" }}>
                 BARVE<span className="text-accent">.</span>
               </span>
             </h1>
@@ -35,7 +30,7 @@ export function Hero() {
               style={{ animationDelay: "360ms" }}
             >
               <span aria-hidden className="h-px w-10 bg-foreground md:w-16" />
-              <h2 className="type-label text-foreground md:text-xs">{site.role}</h2>
+              <p className="type-label text-foreground md:text-xs">{site.role}</p>
             </div>
 
             <Text
@@ -62,20 +57,17 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="reveal-soft hidden md:col-span-3 md:flex md:flex-col md:items-end md:justify-end md:text-right"
+          <div
+            className="reveal-soft flex justify-start md:col-span-4 md:justify-end"
             style={{ animationDelay: "700ms" }}
           >
-            <span className="type-meta">Based in India</span>
-            <span className="type-meta mt-1">Open to opportunities</span>
+            <IdentityBadge />
           </div>
         </div>
       </Container>
 
       <Container className="absolute inset-x-0 bottom-8 md:bottom-10">
-        <div
-          className="reveal-soft flex items-center gap-3"
-          style={{ animationDelay: "900ms" }}
-        >
+        <div className="reveal-soft flex items-center gap-3" style={{ animationDelay: "900ms" }}>
           <ArrowDown className="scroll-hint size-4 text-muted-foreground" aria-hidden />
           <span className="type-label text-muted-foreground">Scroll</span>
         </div>
