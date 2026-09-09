@@ -92,7 +92,7 @@ export function Showcase() {
                 ref={(el) => {
                   stepRefs.current[i] = el;
                 }}
-                className="border-b border-border py-10 first:pt-0 lg:min-h-[70vh] lg:py-16 lg:first:pt-4"
+                className="border-b border-border py-10 first:pt-0 lg:min-h-[70vh] lg:py-16 lg:first:pt-4 lg:last:min-h-0 lg:last:border-b-0"
               >
                 <ProjectStep project={project} index={i} active={i === active} />
               </li>
