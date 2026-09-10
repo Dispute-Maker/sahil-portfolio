@@ -33,10 +33,24 @@ export function Navigation() {
       >
         <a
           href="#top"
-          className="text-lg font-semibold tracking-tight text-foreground md:text-xl"
+          className="group flex h-10 w-20 origin-left items-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground md:w-24"
           aria-label="Sahil Barve — home"
         >
-          SB<span className="text-accent">.</span>
+          <span
+            className={cn(
+              "relative inline-flex origin-left items-baseline font-display text-[1.75rem] leading-none font-semibold motion-safe:transition-[transform,font-size] motion-safe:duration-500 motion-safe:ease-out md:text-[2rem]",
+              scrolled && "text-xl md:text-[1.375rem]",
+            )}
+          >
+            SB<span className="text-accent">.</span>
+            <span
+              aria-hidden
+              className={cn(
+                "absolute -bottom-1 left-0 h-px w-full origin-left bg-foreground motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out",
+                scrolled ? "scale-x-0" : "scale-x-100 group-hover:scale-x-75",
+              )}
+            />
+          </span>
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-9 md:flex">
@@ -44,7 +58,7 @@ export function Navigation() {
             <a
               key={link.href}
               href={link.href}
-              className="type-label relative py-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+              className="type-label relative py-1 text-muted-foreground motion-safe:transition-colors motion-safe:duration-300 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100 motion-reduce:after:transition-none"
             >
               {link.label}
             </a>
