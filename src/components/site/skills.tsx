@@ -4,7 +4,7 @@ import { skillGroups } from "@/data/content";
 export function Skills() {
   return (
     <Section id="skills" divided className="scroll-mt-16">
-      <SectionHeading index="04" title="Skills" />
+      <SectionHeading animated index="04" title="Skills" />
 
       <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
         {skillGroups.map((group, gi) => (

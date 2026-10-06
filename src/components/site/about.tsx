@@ -5,7 +5,7 @@ import { journey } from "@/data/content";
 export function About() {
   return (
     <Section id="about" divided className="scroll-mt-16">
-      <SectionHeading index="01" title="About" />
+      <SectionHeading animated index="01" title="About" />
 
       <div className="mt-10 grid gap-12 md:mt-14 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-7">

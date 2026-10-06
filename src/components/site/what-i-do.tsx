@@ -5,7 +5,7 @@ import { focusAreas } from "@/data/content";
 export function WhatIDo() {
   return (
     <Section id="what-i-do" divided className="scroll-mt-16">
-      <SectionHeading index="02" title="What I do" />
+      <SectionHeading animated index="02" title="What I do" />
 
       <ul className="mt-10 border-t border-border md:mt-14">
         {focusAreas.map((area, i) => (

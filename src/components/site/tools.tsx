@@ -4,7 +4,7 @@ import { tools } from "@/data/content";
 export function Tools() {
   return (
     <Section id="tools" divided className="scroll-mt-16">
-      <SectionHeading index="05" title="Tools & technologies" />
+      <SectionHeading animated index="05" title="Tools & technologies" />
 
       <ul className="mt-10 grid grid-cols-2 border-t border-l border-border sm:grid-cols-3 md:mt-14 lg:grid-cols-5">
         {tools.map((tool, i) => (

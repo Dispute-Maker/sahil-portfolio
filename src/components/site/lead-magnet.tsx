@@ -7,7 +7,7 @@ export function LeadMagnet() {
       <div className="border border-foreground bg-surface">
         <div className="grid gap-10 p-6 md:grid-cols-12 md:gap-8 md:p-12 lg:p-16">
           <div className="md:col-span-8">
-            <SectionHeading index="06" title="Developer toolkit" />
+            <SectionHeading animated index="06" title="Developer toolkit" />
             <Reveal delay={80}>
               <h2 className="type-h1 mt-8 uppercase">
                 Want to know
