@@ -34,7 +34,7 @@ export function Contact() {
 
   return (
     <Section id="contact" divided className="scroll-mt-16">
-      <SectionHeading index="07" title="Contact" />
+      <SectionHeading animated index="07" title="Contact" />
 
       <Reveal delay={80}>
         <h2 className="type-display mt-8 uppercase md:mt-10">
