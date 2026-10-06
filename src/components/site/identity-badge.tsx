@@ -9,6 +9,28 @@ import { cn } from "@/lib/utils";
  */
 export function IdentityBadge({ className }: { className?: string }) {
   const [progress, setProgress] = useState(0);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  // Very subtle mouse-follow (max ~6px), desktop fine pointers only.
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: fine) and (min-width: 768px)");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!mq.matches || reduce) return;
+    let raf = 0;
+    const onMove = (e: MouseEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 12;
+        const y = (e.clientY / window.innerHeight - 0.5) * 12;
+        setTilt({ x, y });
+      });
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -39,7 +61,13 @@ export function IdentityBadge({ className }: { className?: string }) {
         transition: "transform 0.15s linear, opacity 0.15s linear",
       }}
     >
-      <div className="flex flex-col border border-foreground bg-surface">
+      <div
+        className="flex flex-col border border-foreground bg-surface"
+        style={{
+          transform: `translate3d(${tilt.x.toFixed(2)}px, ${tilt.y.toFixed(2)}px, 0)`,
+          transition: "transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
+      >
         {/* Top mark row */}
         <div className="flex items-center justify-between border-b border-foreground px-4 py-3">
           <span className="text-lg font-semibold tracking-tight">
@@ -57,7 +85,7 @@ export function IdentityBadge({ className }: { className?: string }) {
             height={1024}
             className="size-full object-cover grayscale-[0.1] transition-transform duration-700 ease-out hover:scale-[1.03]"
           />
-          <span aria-hidden className="absolute right-3 bottom-3 size-2 bg-accent" />
+          <span aria-hidden className="absolute right-3 bottom-3 size-2 bg-accent accent-pulse" />
         </div>
 
         {/* Identity */}
@@ -67,7 +95,7 @@ export function IdentityBadge({ className }: { className?: string }) {
           <div className="mt-5 flex items-center justify-between">
             <span className="type-meta text-muted-foreground">Based in India</span>
             <span className="inline-flex items-center gap-1.5">
-              <span aria-hidden className="size-1.5 rounded-full bg-accent" />
+              <span aria-hidden className="size-1.5 rounded-full bg-accent accent-pulse" />
               <span className="type-meta">Available</span>
             </span>
           </div>

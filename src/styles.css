@@ -245,8 +245,8 @@
   opacity: 0;
   transform: translateY(1.5rem);
   transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   &.is-visible {
     opacity: 1;
     transform: none;
@@ -278,4 +278,39 @@
 
 html, body {
   overflow-x: clip;
+}
+
+/* Motion pass: section headings (number + rule first, then title) */
+.heading-reveal .hr-num,
+.heading-reveal .hr-title {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.heading-reveal .hr-rule {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+.heading-reveal .hr-title { transition-delay: 0.22s; }
+.heading-reveal.is-visible .hr-num,
+.heading-reveal.is-visible .hr-title { opacity: 1; transform: none; }
+.heading-reveal.is-visible .hr-rule { transform: scaleX(1); }
+
+/* Gentle accent breathing */
+@keyframes accent-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.82); }
+}
+.accent-pulse { animation: accent-pulse 2.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .heading-reveal .hr-num,
+  .heading-reveal .hr-title,
+  .heading-reveal .hr-rule {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .accent-pulse { animation: none !important; }
 }

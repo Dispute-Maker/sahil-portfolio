@@ -15,7 +15,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 const fieldClass =
-  "type-body w-full border-0 border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/70 transition-colors focus:border-foreground focus:outline-none aria-[invalid=true]:border-destructive";
+  "type-body w-full border-0 border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/70 transition-[border-color,padding,color] duration-300 ease-out hover:border-muted-foreground focus:border-foreground focus:pl-2 motion-reduce:focus:pl-0 focus:outline-none aria-[invalid=true]:border-destructive";
 
 export function Contact() {
   const [sent, setSent] = useState(false);

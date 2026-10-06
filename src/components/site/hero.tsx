@@ -21,7 +21,7 @@ export function Hero() {
                 SAHIL
               </span>
               <span className="reveal block" style={{ animationDelay: "240ms" }}>
-                BARVE<span className="text-accent">.</span>
+                BARVE<span className="accent-pulse inline-block text-accent">.</span>
               </span>
             </h1>
 
